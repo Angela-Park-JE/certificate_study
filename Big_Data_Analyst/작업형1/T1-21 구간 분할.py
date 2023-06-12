@@ -37,13 +37,19 @@ m3 = df[l*2:]['age'].median()
 print(m1+m2+m3)
 
 
-# 풀은 것은 맞았으나 주의할 점: 이상치 기준 확인하기
+
+# 풀은 것은 맞았으나 주의할 점: 
+  # 1. 이상치 기준 문제에서 확인하기 | 
+  # 2. pd.qcut() 기억하기 : 개수로 구간을 나누어 새 레이블을 붙인 컬럼 만들기 가능 
+  # df['range'] = pd.qcut(df['age'], q=3, labels=['group1','group2','group3'])
+
 # 문제 : 나이 구간 나누기 : basic1 데이터 중 'age'컬럼 이상치를 제거하고, 
 # 동일한 개수로 나이 순으로 3그룹으로 나눈 뒤 각 그룹의 중앙값을 더하시오 
 # (이상치는 음수(0포함), 소수점 값)
 
-# 풀이 ***
 
+
+# 풀이 ***
 import pandas as pd
 df = pd.read_csv('../input/bigdatacertificationkr/basic1.csv')
 
@@ -78,4 +84,3 @@ print(g1_med + g2_med + g3_med)
 
 
 # 165.0
-
