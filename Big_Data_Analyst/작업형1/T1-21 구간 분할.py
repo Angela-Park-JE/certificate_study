@@ -35,3 +35,47 @@ m3 = df[l*2:]['age'].median()
 
 # 4. Print the sum of median values
 print(m1+m2+m3)
+
+
+# 풀은 것은 맞았으나 주의할 점: 이상치 기준 확인하기
+# 문제 : 나이 구간 나누기 : basic1 데이터 중 'age'컬럼 이상치를 제거하고, 
+# 동일한 개수로 나이 순으로 3그룹으로 나눈 뒤 각 그룹의 중앙값을 더하시오 
+# (이상치는 음수(0포함), 소수점 값)
+
+# 풀이 ***
+
+import pandas as pd
+df = pd.read_csv('../input/bigdatacertificationkr/basic1.csv')
+
+
+# age 이상치 (음수(0포함), 소수점 제거)
+print('전체 데이터:', df.shape)
+df = df[~(df['age'] <= 0)]
+print('음수(0포함)값 제거 후 데이터 크기:', df.shape)
+
+df = df[(df['age'] == round(df['age'],0))]
+print('소수점 제거 후 데이터 크기:', df.shape)
+
+
+# 기준 확인
+pd.qcut(df['age'], q=3)
+
+
+# 구간 분할
+df['range'] = pd.qcut(df['age'], q=3, labels=['group1','group2','group3'])
+
+
+# 수량 비교
+df['range'].value_counts()
+
+
+# 중간이상 - 중간이하 
+g1_med = df[df['range'] == 'group1']['age'].median()
+g2_med = df[df['range'] == 'group2']['age'].median()
+g3_med = df[df['range'] == 'group3']['age'].median()
+
+print(g1_med + g2_med + g3_med)
+
+
+# 165.0
+
