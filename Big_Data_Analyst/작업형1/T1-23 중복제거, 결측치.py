@@ -40,3 +40,34 @@ df_temp = df.sort_values(by = 'f1', ascending = False)
 df_temp_before = df_temp.copy()
 df_temp_after = df_temp.drop_duplicates(subset = ['age'], keep = 'first')
 print(abs(df_temp_before['f1'].median() - df_temp_after['f1'].median()))
+
+
+
+# ---
+# 풀이
+import pandas as pd
+df = pd.read_csv('../input/bigdatacertificationkr/basic1.csv')
+# df.tail()
+
+# f1데이터에서 10번째 큰 값으로 결측치를 채움
+top10 = df['f1'].sort_values(ascending=False).iloc[9]
+print(top10)
+df['f1'] = df['f1'].fillna(top10)
+
+# 중복 제거 전 중앙 값
+result1 = df['f1'].median()
+# result1
+
+# 중복 제거
+# print(df.shape)
+df = df.drop_duplicates(subset=['age'])
+# print(df.shape)
+
+# 중복 제거 후 중앙 값
+result2 = df['f1'].median()
+# result2
+
+# 차이 (절대값)
+print(abs(result1 - result2))
+
+# 답 : 0.5
