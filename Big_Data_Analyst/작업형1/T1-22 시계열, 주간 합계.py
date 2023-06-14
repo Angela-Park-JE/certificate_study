@@ -6,7 +6,6 @@
 
 # 1. Data and libraries
 import pandas as pd
-
 df = pd.read_csv('/kaggle/input/bigdatacertificationkr/basic2.csv', parse_dates=['Date'])
 
 
@@ -27,3 +26,35 @@ df_allweekly = pd.concat([df_22weekly, df_23weekly], axis = 0, ignore_index = Tr
 maxsales = df_allweekly['Sales'].max()
 minsales = df_allweekly['Sales'].min()
 print(abs(maxsales - minsales))
+
+
+
+# --- 
+# 풀이
+# 라이브러리 및 데이터 로드
+import pandas as pd
+df = pd.read_csv("../input/bigdatacertificationkr/basic2.csv", parse_dates=['Date'], index_col=0)
+
+# 아래 코드를 한줄로 표현함
+# df = pd.read_csv("../input/bigdatacertificationkr/basic2.csv")
+# df['Date'] = pd.to_datetime(df['Date'])
+# df = df.set_index('Date')
+
+# print(df.shape)
+# df.head(3)
+
+# 단위
+# 주 단위 W
+# 2주 단위 2W
+# 월 단위 M
+df_w = df.resample('W').sum()
+# df_w.head()
+# df_w.shape
+
+
+ma = df_w['Sales'].max()
+ma
+mi = df_w['Sales'].min()
+mi
+
+print(ma - mi)
