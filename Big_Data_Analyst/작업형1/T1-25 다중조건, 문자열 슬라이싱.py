@@ -18,3 +18,20 @@ cond3 = (df['age']>=20)&(df['age']<30)
 
 # 3. Count them
 print(len(df[cond1&cond2&cond3]))
+# 0
+
+
+
+# ---
+# 풀이
+import pandas as pd
+df = pd.read_csv("../input/bigdatacertificationkr/basic1.csv")
+df['EI'] = df['f4'].str[:1]
+cond1 = df['EI'] == "E"
+cond2 = df['city'] == "부산"
+cond3 = (df['age'] >= 20) & (df['age'] < 30)
+
+print(len(df[cond1 & cond2 & cond3]))
+
+
+# 답 : 0
