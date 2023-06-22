@@ -1,6 +1,7 @@
 # 617 JungEun : 230615 THU mission 28 (1)
 # T1-31. 데이터 재구성
 # name 컬럼을 제외한 각 점수에 대해 모두 병합하여 가장 큰 5개 점수 더하여 출력.
+# https://www.kaggle.com/code/angellapark/t1-31-melt
 
 # 1. Data and libraries
 import pandas as pd
