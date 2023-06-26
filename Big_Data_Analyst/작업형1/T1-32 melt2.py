@@ -1,5 +1,5 @@
 # 617 JungEun : 230616 FRI mission 29 (1)
-# T1-31. 데이터 재구성
+# T1-31. 데이터 재조합
 # name 컬럼을 제외한 각 점수에 대해 모두 병합하여 가장 큰 5개 점수 더하여 출력.
 # https://www.kaggle.com/code/angellapark/t1-32-melt2/notebook
 
