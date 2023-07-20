@@ -32,6 +32,22 @@ print(sum(df['points']))   # 17
 
 
 
+# ---
+# 복습(23.07.20)
+import pandas as pd
+df = pd.read_csv("/kaggle/input/bigdatacertificationkr/payment.csv")
+
+# replace
+df['menu'] = df['menu'].str.replace(' ', '')
+df['score'] = 0
+
+dic = {'바닐라라떼': 5, '카페라떼':3, '아메리카노':2}
+df['score'] = df['menu'].map(dic)
+# df['score'] = df['score'].fillna(0) -> 안해도 됨
+print(df['score'].sum())
+
+
+
 
 # ---
 # 풀이
