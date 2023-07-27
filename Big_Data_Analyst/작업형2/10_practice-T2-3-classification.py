@@ -17,6 +17,8 @@ y_train['income'].value_counts()
 X_train.describe(include = 'object')
 X_train.describe(include = 'int64')
 X_test.describe(include = 'object')
+
+# train, test 내 오브젝트 컬럼의 unique 값 개수 동일한지 확인하기
 pd.DataFrame([X_train.describe(include = 'object').loc['unique'], X_test.describe(include = 'object').loc['unique']])
 
 X_train['occupation'].value_counts()
