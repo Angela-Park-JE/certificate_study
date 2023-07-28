@@ -12,20 +12,26 @@ df = pd.DataFrame({'Name': {0: '김딴짓', 1: '박분기', 2: '이퇴근'},
 
 
 
-# 2. drop a meaningless column
+# 2. Drop a meaningless column
 df2 = df.drop(columns = 'Name').melt()
 
 
-# 3. get value with sorting
+# 3. Get value by sorting
 print(df2['value'].sort_values(ascending = False)[:5].sum())
 
 
 
-# --=
+# ---
 # 풀이
 df = pd.melt(df, id_vars=['Name'])
 df = df.sort_values(by='value', ascending=False)
 print(sum(df['value'].iloc[:5]))
 
+# 답: 460
 
-# 답 : 460
+
+
+# ---
+# 복습
+# 23.07.28
+print(df.melt(id_vars = 'Name').sort_values('value', ascending = False)[:5]['value'].sum())
