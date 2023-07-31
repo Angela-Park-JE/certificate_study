@@ -2,6 +2,25 @@
 # T2-6 도전
 # 깍두기 된 부분: 검증데이터, r2_score의 의미
 
+"""
+https://www.kaggle.com/code/angellapark/t2-6-bike-regressor/edit
+데이터셋 요약 정보 (train.columns)
+'datetime' : 년월일 시
+'season' : 1234 
+'holiday' : 휴일 여부
+'workingday' : 비즈니스일 여부
+'weather' : 
+'temp', : 온도
+'atemp' : 
+'humidity' : 습도
+'windspeed' : 풍속
+'casual' - number of non-registered user rentals initiated : 회원 아닌 사람 횟수
+'registered' - number of registered user rentals initiated : 회원인 사람 횟수
+'count' - number of total rentals
+"""
+
+
+
 # 라이브러리 및 타겟 데이터 분할
 import pandas as pd
 
