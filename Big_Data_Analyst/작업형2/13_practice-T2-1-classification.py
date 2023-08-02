@@ -164,3 +164,15 @@ subm.to_csv('617.csv', index = False)
 
 # 확인
 # pd.read_csv('/kaggle/working/617.csv')
+
+
+
+
+
+# --
+### 채점 (시험에선 없음) 
+# : 이건 덤. 풀이보고 가져온 채점. 후후 베이스라인보다 2퍼 올랐다.... 정말 별로군.
+gbc.score(X_test, y_test['Survived']) # 진짜 정답 넣고 채점 : 0.7877094972067039
+# 이것도 해볼까.
+print('accuracy : ', accuracy_score(y_test['Survived'], pred)) # accuracy :  0.7597765363128491
+print('rocauc : ', roc_auc_score(y_test['Survived'], pred)) # rocauc :  0.7381977047470005
