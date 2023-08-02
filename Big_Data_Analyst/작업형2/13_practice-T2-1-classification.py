@@ -103,3 +103,64 @@ df.info()
 
 
 ### 모델링 준비 - 검증데이터
+# 데이터 분리를 진행하여 하기에는 많이 작으므로 생략하려다 연습해야하니 함 (model_selection 또 까먹음)
+
+# 데이터 분리
+X_train = df[:len(X_train)]
+X_test = df[len(X_train):]
+
+# id 분리
+id_train = X_train.pop('PassengerId')
+id_test = X_test.pop('PassengerId')
+
+from sklearn.model_selection import train_test_split
+X_tr, X_val, y_tr, y_val = train_test_split(X_train, y_train['Survived'])
+print(X_tr.shape, X_val.shape, y_tr.shape, y_val.shape)
+
+
+
+### 모델링
+
+### **(1)** 그래디언트 부스팅 **:** 0.8539325842696629
+# 모델링 : 그래디언트 부스팅
+from sklearn.ensemble import GradientBoostingClassifier
+gbc = GradientBoostingClassifier(random_state = 617)
+gbc.fit(X_tr, y_tr)
+gbc_pred = gbc.predict(X_val)
+
+
+# 검증 : 그래디언트 부스팅
+from sklearn.metrics import accuracy_score, roc_auc_score
+print('accuracy : ', accuracy_score(y_val, gbc_pred)) # accuracy :  0.8539325842696629
+print('rocauc : ', roc_auc_score(y_val, gbc_pred)) # rocauc :  0.8425133689839571
+
+
+### (2) 랜덤포레스트 : 0.8314606741573034
+# 머델링 : 랜덤포레스트
+from sklearn.ensemble import RandomForestClassifier
+rfc = RandomForestClassifier(random_state = 617)
+rfc.fit(X_tr, y_tr)
+rfc_pred = rfc.predict(X_val)
+
+
+# 검증 : 랜덤포레스트
+from sklearn.metrics import accuracy_score, roc_auc_score
+print('accuracy : ', accuracy_score(y_val, rfc_pred)) # accuracy :  0.8314606741573034
+print('rocauc : ', roc_auc_score(y_val, rfc_pred)) # rocauc :  0.8215240641711229
+
+
+### 모델선택
+
+# 모델 선택 : 그래디언트 부스팅
+pred = gbc.predict(X_test)
+
+
+### 내보내기
+
+# 결과 저장
+subm = pd.DataFrame({'PassengerId':id_test, 'Survived':pred})
+subm.to_csv('617.csv', index = False)
+
+
+# 확인
+# pd.read_csv('/kaggle/working/617.csv')
