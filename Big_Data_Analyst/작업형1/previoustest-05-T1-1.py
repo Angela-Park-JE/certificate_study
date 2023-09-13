@@ -27,7 +27,7 @@ print(int(round(avg)))
 
 
 # 복습 230913
-"""
+
 # 1 번
 # 1. data and libraries
 import pandas as pd
@@ -40,4 +40,3 @@ data = df[(df['종량제봉투종류'] == '규격봉투')&(df['종량제봉투�
 answer = round(data.mean())
 
 print(answer) # 118
-"""
