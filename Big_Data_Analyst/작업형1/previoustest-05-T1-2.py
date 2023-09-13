@@ -30,3 +30,21 @@ print(int(abs(norm - warn)))
 
 # 144
 # 7분
+
+
+
+# 복습 230913
+"""
+# 2 번
+# 1. data and libraries
+import pandas as pd
+df = pd.read_csv('/kaggle/input/mssion32-mission33-dataset/0620 - 미션32/5-2bmi.csv')
+
+# 2. bmi 
+df['bmi'] = df['Weight']/((df['Height']/100)**2)
+
+# 3. condition : 정상체중: BMI 18.5이상 ~ 23미만 / 위험체중: BMI 23 이상 ~ 25미만
+answer = abs(len(df[(df['bmi']>=18.5)&(df['bmi']<23)]) - len(df[(df['bmi']>=23)&(df['bmi']<25)]))
+
+print(answer)
+"""
