@@ -9,16 +9,25 @@ import pandas as pd
 df = pd.read_csv('/kaggle/input/mssion32-mission33-dataset/0620 - 미션32/5-3student.csv')
 # df.columns
 
-# 2. new col 
+
+
+# 2. new col
 df['순전입학생수(계)'] = df['전입학생수(계)'] - df['전출학생수(계)']
+
+
 
 # 3. 정렬
 df.sort_values('순전입학생수(계)', ascending = False)[:5]
+
+
 
 # 4. 데려오기
 temp = df.sort_values('순전입학생수(계)', ascending = False).reset_index()
 answer = temp['전체학생수(계)'][0]
 print(int(answer))
+
+
+# 230
 
 
 
@@ -61,4 +70,4 @@ df['순전입학생'] = (df['전입학생수(계)'] - df['전출학생수(계)']
 data = df.sort_values('순전입학생', ascending = False)['전체학생수(계)'].reset_index(drop = True)
 answer = int(data[0])
 
-print(answer)
+print(answer) # 230
