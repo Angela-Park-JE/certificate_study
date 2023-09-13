@@ -23,3 +23,21 @@ print(int(round(avg)))
 
 # 118
 # 4분
+
+
+
+# 복습 230913
+"""
+# 1 번
+# 1. data and libraries
+import pandas as pd
+df = pd.read_csv('/kaggle/input/mssion32-mission33-dataset/0620 - 미션32/5-1price.csv')
+
+# 2. condition
+data = df[(df['종량제봉투종류'] == '규격봉투')&(df['종량제봉투용도'] == '음식물쓰레기')&(df['2ℓ가격'] != 0)]['2ℓ가격']
+
+# 3. isna() false's mean and round it
+answer = round(data.mean())
+
+print(answer) # 118
+"""
