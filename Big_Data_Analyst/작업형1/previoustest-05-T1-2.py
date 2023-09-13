@@ -34,7 +34,6 @@ print(int(abs(norm - warn)))
 
 
 # 복습 230913
-"""
 # 2 번
 # 1. data and libraries
 import pandas as pd
@@ -47,4 +46,3 @@ df['bmi'] = df['Weight']/((df['Height']/100)**2)
 answer = abs(len(df[(df['bmi']>=18.5)&(df['bmi']<23)]) - len(df[(df['bmi']>=23)&(df['bmi']<25)]))
 
 print(answer) # 144
-"""
