@@ -31,3 +31,26 @@ print(len(df_outs[df_outs['Sex'] == 'female']))
 # AND simply like this(step 3 + step 4)
 # 공부한다고 몇주 전 했었을때 이렇게 했었어요. 이상치 데이터에 조건 걸고 sum을 때리는 겁니다!
 # print(sum(df[(df['Fare']< q1-(q3-q1)*1.5)|(df['Fare']> q3+(q3-q1)*1.5)]['Sex']=='female'))
+
+
+
+# 복습
+# 230914
+
+# 데이터&라이브러리
+import pandas as pd
+df = pd.read_csv('/kaggle/input/titanic/train.csv')
+
+# IQR 활용 Fare 컬럼의 이상치 찾기
+q1 = df['Fare'].quantile(0.25)
+q3 = df['Fare'].quantile(0.75)
+iqr = q3-q1
+
+# condition
+df1 = df[(df['Fare']<q1-iqr*1.5)|(df['Fare']>q3+iqr*1.5)]
+
+# 여성수
+answer = len(df1[df1['Sex'] == 'female'])
+
+# print
+print(answer)
