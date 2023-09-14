@@ -34,7 +34,7 @@ print(len(df_outs[df_outs['Sex'] == 'female']))
 
 
 
-# 복습
+# 복습 ---
 # 230914
 
 # 데이터&라이브러리
