@@ -16,7 +16,7 @@ df.head(3)
 df_med = df.groupby('city').median()
 print(df_med)
 
-fill_median_func = lambda m: m.fillna(m.median(), numeric_only = True) # numeric only 관련 옵션이 필요하게 된다.
+fill_median_func = lambda m: m.fillna(m.median()) # numeric only 관련 옵션이 필요하게 된다고 경고가 같이 
 df_filled = df.groupby('city').apply(fill_median_func)
 df_filled.head(3)
 
