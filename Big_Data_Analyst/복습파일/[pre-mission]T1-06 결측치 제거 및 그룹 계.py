@@ -14,7 +14,7 @@ df.dropna(axis = 0, subset = ['f1'], inplace = True)
 # 그룹 합계 계산
 df_pt = df.pivot_table(values = 'f1', index = 'city', columns = 'f2', 
                        aggfunc = 'sum')
-# df_pt  # 행이 city 열이 f2로 이루어진 피벗테이블 형테
+# df_pt  # 행이 city 열이 f2로 이루어진 피벗테이블 형태
 
 # 조건에 맞는 값을 구하기
 print(df_pt.loc['경기', 0])
